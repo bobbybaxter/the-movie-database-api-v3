@@ -2,7 +2,11 @@ const transformMovie = require( "../../../utils/transformMovie" );
 
 module.exports = ( { data } ) => {
   return async ( req, res ) => {
-    const { id } = req.params;
+    const id = parseInt( req.params.id );
+
+    if ( !id ) {
+      return res.send( {} );
+    }
 
     try {
       const results = await data.getById( id );
