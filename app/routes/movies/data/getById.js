@@ -6,7 +6,8 @@ module.exports = ( { config } ) => async id => {
   try {
     const response = await axios.get( url );
     return response.data;
-  } catch ( err ) {
-    console.error( err );
+  } catch ( { response } ) {
+    const { status_message } = response.data;
+    return new Error( status_message, { cause: response } );
   }
 };

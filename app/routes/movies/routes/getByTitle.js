@@ -1,7 +1,7 @@
 const transformMovie = require( "../../../utils/transformMovie" );
 
 module.exports = ( { data } ) => {
-  return async ( req, res ) => {
+  return async ( req, res, next ) => {
     let results;
     const { title } = req.query;
 
@@ -9,18 +9,18 @@ module.exports = ( { data } ) => {
       return res.send( [] );
     }
 
-    try {
-      ( { results } = await data.getByTitle( title ));
+    ( { results } = await data.getByTitle( title ));
 
-      if ( results.length > 10 ) {
-        results = results.slice( 0, 10 );
-      }
-
-      const MediaObject = results.map( movie => transformMovie( movie ));
-
-      return res.send( MediaObject );
-    } catch ( err ) {
-      console.error( err );
+    if ( results instanceof Error ) {
+      return next( results );
     }
+
+    if ( results.length > 10 ) {
+      results = results.slice( 0, 10 );
+    }
+
+    const MediaObject = results.map( movie => transformMovie( movie ));
+
+    return res.send( MediaObject );
   };
 };
