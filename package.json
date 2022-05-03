@@ -1,0 +1,29 @@
+{
+  "name": "the-movie-database-api-v3",
+  "homepage": "https://github.com/bobbybaxter/the-movie-database-api-v3#readme",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "Bob Baxter",
+  "license": "ISC",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "lint": "eslint . --fix",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bobbybaxter/the-movie-database-api-v3.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bobbybaxter/the-movie-database-api-v3/issues"
+  },
+  "dependencies": {
+    "express": "^4.18.1",
+    "nodemon": "^2.0.16"
+  },
+  "devDependencies": {
+    "eslint": "^7.8.0"
+  }
+}
