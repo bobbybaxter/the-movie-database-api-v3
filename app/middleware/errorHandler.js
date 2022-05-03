@@ -1,4 +1,4 @@
-module.exports = ( err, req, res, next ) => {
+module.exports = app => ( err, req, res, next ) => {
   const error = err.cause;
   error.status = error.status || 500;
   error.statusText = error.statusText || 'error';
