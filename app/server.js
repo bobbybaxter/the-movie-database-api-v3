@@ -2,12 +2,16 @@ const express = require( 'express' );
 const server = express();
 
 module.exports = app => {
-  const port = 3000; // NOTE: when config file is needed, move this there
+  const { log, config } = app;
+  const port = config.PORT || 3000;
 
+  const logFactory = require( './setup/log' )( app.config );
+  
+  server.use( logFactory );
   server.use( require( "./routes" )( app ));
   
   server.listen( port, () => {
-    console.log( `Listening on port ${ port }` );
+    log.info( `Listening on port ${ port }` );
   } );
 
   return server;

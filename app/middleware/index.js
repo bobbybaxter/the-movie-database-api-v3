@@ -1,7 +1,5 @@
-const errorHandler = require( "../middleware/errorHandler" );
-
 module.exports = app => {
   return {
-    errorHandler
+    errorHandler: require( "../middleware/errorHandler" )( app )
   };
 };
