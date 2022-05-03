@@ -1,7 +1,7 @@
-const serverFactory = require( './server' );
+const appFactory = require( './app' );
 
-const app = {};
+// NOTE: the API_KEY in this config should be moved 
+// to an environment variable for security purposes
+const config = require( './config.json' );
 
-app.server = serverFactory( app );
-
-module.exports = app;
+module.exports = appFactory( config );

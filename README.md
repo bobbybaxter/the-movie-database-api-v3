@@ -1,1 +1,1 @@
-# the-movie-database-api-v3
+# The Movie Database API v3
