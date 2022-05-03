@@ -20,8 +20,10 @@
     "url": "https://github.com/bobbybaxter/the-movie-database-api-v3/issues"
   },
   "dependencies": {
+    "axios": "^0.27.2",
     "express": "^4.18.1",
-    "nodemon": "^2.0.16"
+    "nodemon": "^2.0.16",
+    "require-directory": "^2.1.1"
   },
   "devDependencies": {
     "eslint": "^7.8.0"
